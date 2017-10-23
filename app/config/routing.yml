@@ -1,18 +1,14 @@
-wc_sfly_reservation_terrain:
-    resource: "@WCSflyReservationBundle/Controller/TerrainController.php"
+wcs_coav_terrain:
+    resource: "@WCSCoavBundle/Controller/TerrainController.php"
     type:     annotation
 
-wc_sfly_reservation_flight:
-    resource: "@WCSflyReservationBundle/Controller/FlightController.php"
+wcs_coav_flight:
+    resource: "@WCSCoavBundle/Controller/FlightController.php"
     type:     annotation
 
-wc_sfly_reservation_reservation:
-    resource: "@WCSflyReservationBundle/Controller/reservationController.php"
+wcs_coav_reservation:
+    resource: "@WCSCoavBundle/Controller/ReservationController.php"
     type:     annotation
-
-wc_sfly_reservation:
-    resource: "@WCSflyReservationBundle/Resources/config/routing.yml"
-    prefix:   /
 
 wcs_coav_plane_model:
     resource: "@WCSCoavBundle/Controller/PlaneModelController.php"

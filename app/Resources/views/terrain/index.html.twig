@@ -35,9 +35,6 @@
                         <li>
                             <a href="{{ path('terrain_show', { 'id': terrain.id }) }}">show</a>
                         </li>
-                        <li>
-                            <a href="{{ path('terrain_edit', { 'id': terrain.id }) }}">edit</a>
-                        </li>
                     </ul>
                 </td>
             </tr>
@@ -45,9 +42,5 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('terrain_new') }}">Create a new terrain</a>
-        </li>
-    </ul>
+    
 {% endblock %}
