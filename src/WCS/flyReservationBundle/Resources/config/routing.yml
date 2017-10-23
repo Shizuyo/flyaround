@@ -1,0 +1,3 @@
+wc_sfly_reservation_homepage:
+    path:     /
+    defaults: { _controller: WCSflyReservationBundle:Default:index }

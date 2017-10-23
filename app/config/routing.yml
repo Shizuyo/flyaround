@@ -1,3 +1,24 @@
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+wc_sfly_reservation_terrain:
+    resource: "@WCSflyReservationBundle/Controller/TerrainController.php"
+    type:     annotation
+
+wc_sfly_reservation_flight:
+    resource: "@WCSflyReservationBundle/Controller/FlightController.php"
+    type:     annotation
+
+wc_sfly_reservation_reservation:
+    resource: "@WCSflyReservationBundle/Controller/reservationController.php"
+    type:     annotation
+
+wc_sfly_reservation:
+    resource: "@WCSflyReservationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+wcs_coav_plane_model:
+    resource: "@WCSCoavBundle/Controller/PlaneModelController.php"
+    type:     annotation
+
+wcs_coav:
+    resource: "@WCSCoavBundle/Resources/config/routing.yml"
+    prefix:   /
+
