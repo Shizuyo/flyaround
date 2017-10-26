@@ -12,16 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PlaneModel
 {
-
-    /* Personnal Code */
-
-    /**
-     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\Flight", inversedBy="plane")
-     */
-    private $planes;
-
-    /* Doctrine Code */
-
     /**
      * @var int
      *

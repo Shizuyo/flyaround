@@ -28,10 +28,9 @@ class Flight
     private $departure;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\Terrain")
-     * @ORM\JoinColumn(name="arrival", referencedColumnName="id")
+     * @ORM\Column(name="arrival", type="string", length=32)
      */
     private $arrival;
 
@@ -71,17 +70,16 @@ class Flight
     private $description;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\OneToOne(targetEntity="WCS\CoavBundle\Entity\User")
-     * @ORM\JoinColumn(name="pilot", referencedColumnName="id")
+     * @ORM\Column(name="pilot", type="string", length=32)
      */
     private $pilot;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\PlaneModel", mappedBy="planes")
+     * @ORM\Column(name="plane", type="string", length=64)
      */
     private $plane;
 
