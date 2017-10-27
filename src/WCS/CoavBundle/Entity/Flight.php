@@ -30,7 +30,7 @@ class Flight
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\Terrain")
+     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\Terrain", inversedBy="arrivals")
      * @ORM\JoinColumn(name="arrival", referencedColumnName="id")
      */
     private $arrival;
@@ -73,7 +73,7 @@ class Flight
     /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="WCS\CoavBundle\Entity\User")
+     * @ORM\OneToOne(targetEntity="WCS\CoavBundle\Entity\User", mappedBy="pilots")
      * @ORM\JoinColumn(name="pilot", referencedColumnName="id")
      */
     private $pilot;
@@ -81,7 +81,7 @@ class Flight
     /**
      * @var int
      *
-     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\PlaneModel", mappedBy="planes")
+     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\PlaneModel", inversedBy="planes")
      */
     private $plane;
 

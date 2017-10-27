@@ -27,6 +27,11 @@ class User
      */
     private $reviewsAuthors;
 
+    /**
+     * @ORM\OneToOne(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="pilot")
+     */
+    private $pilots;
+
     /* doctrine automatical */
 
     /**
