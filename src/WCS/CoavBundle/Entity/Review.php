@@ -12,14 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Review
 {
-    /* personnal */
-
-    /**
-     * @var int
-     *
-     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="reviews")
-     */
-    private $review;
 
     /* doctrine */
 

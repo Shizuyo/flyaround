@@ -21,16 +21,17 @@ class User
     private $reservations;
 
     /**
-     * @var int
-     *
-     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Review", mappedBy="reviewAuthor")
-     */
-    private $reviewsAuthors;
-
-    /**
      * @ORM\OneToOne(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="pilot")
      */
     private $pilots;
+
+    /**
+     * @var int
+     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Review", mappedBy="reviewAuthor")
+     *
+     * @ORM\JoinColumn(name="reviewAuthors")
+     */
+    private $reviewAuthors;
 
     /* doctrine automatical */
 
@@ -109,7 +110,7 @@ class User
     /**
      * @var int
      *
-     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Review", mappedBy="id")
+     * @ORM\Column(name="reviews", type="integer", nullable=true)
      */
     private $reviews;
 

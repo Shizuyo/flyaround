@@ -73,7 +73,7 @@ class Flight
     /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="WCS\CoavBundle\Entity\User", mappedBy="pilots")
+     * @ORM\OneToOne(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="pilots")
      * @ORM\JoinColumn(name="pilot", referencedColumnName="id")
      */
     private $pilot;
@@ -92,6 +92,10 @@ class Flight
      */
     private $wasDone;
 
+    /**
+     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Reservation", mappedBy="flight")
+     */
+    private $flights;
 
     /**
      * Get id
