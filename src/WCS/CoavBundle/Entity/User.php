@@ -14,6 +14,15 @@ class User
 {
     /* personnal */
 
+
+    public function __toString()
+    {
+
+        // Return the Flight objet with departure, arrival,seatplace
+        return $this-> userName . "-" .$this->firstName . " " . $this->role;
+
+    }
+
     /**
      * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\Reservation", inversedBy="passengers")
      * @ORM\JoinColumn(nullable=false)

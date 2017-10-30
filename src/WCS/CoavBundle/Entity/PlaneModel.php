@@ -15,6 +15,12 @@ class PlaneModel
 
     /* Personnal Code */
 
+    public function __toString()
+    {
+        // Return the Terrain object with "[model] - [manufacturer]" format, when __toString is called.
+        return $this->model . "-" . $this->manufacturer;
+    }
+
     /**
      * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="plane")
      */

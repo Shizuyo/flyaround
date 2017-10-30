@@ -12,6 +12,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Review
 {
+    /* personnal */
+
+
+    public function __toString()
+    {
+
+        // Return the Flight objet with departure, arrival,seatplace
+        return $this->reviewAuthor . "-" .$this->text . " " . $this->publicationDate;
+
+    }
 
     /* doctrine */
 

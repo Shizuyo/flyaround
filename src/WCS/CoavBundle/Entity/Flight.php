@@ -12,6 +12,15 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Flight
 {
+    /* personnal */
+
+    public function __toString()
+    {
+        // Return the Terrain object with "[departure] - [arrival] [seatprice]" format, when __toString is called.
+        return $this->departure . "-" . $this->arrival . " " . $this->seatPrice;
+    }
+
+    /* doctrine */
     /**
      * @var int
      *
