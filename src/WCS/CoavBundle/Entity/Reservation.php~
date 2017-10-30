@@ -53,9 +53,10 @@ class Reservation
     private $passenger;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="flight", type="string", length=32)
+     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\Flight", inversedBy="flights")
+     * @ORM\JoinColumn(name="flight", referencedColumnName="id")
      */
     private $flight;
 

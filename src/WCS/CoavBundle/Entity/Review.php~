@@ -12,6 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Review
 {
+
+    /* doctrine */
+
     /**
      * @var int
      *
@@ -39,8 +42,7 @@ class Review
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User")
-     * @ORM\Column(name="reviewAuthor", type="integer")
+     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="reviewsAuthors")
      */
     private $reviewAuthor;
 
@@ -189,4 +191,3 @@ class Review
         return $this->note;
     }
 }
-

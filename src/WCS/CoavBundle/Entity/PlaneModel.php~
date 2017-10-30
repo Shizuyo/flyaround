@@ -12,6 +12,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PlaneModel
 {
+
+    /* Personnal Code */
+
+    /**
+     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="plane")
+     */
+    private $planes;
+
+    /* Doctrine Code */
+
     /**
      * @var int
      *

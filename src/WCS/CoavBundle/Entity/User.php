@@ -535,4 +535,38 @@ class User
     {
         return $this->reviewAuthor;
     }
+
+    /**
+     * Set pilots
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $pilots
+     *
+     * @return User
+     */
+    public function setPilots(\WCS\CoavBundle\Entity\Flight $pilots = null)
+    {
+        $this->pilots = $pilots;
+
+        return $this;
+    }
+
+    /**
+     * Get pilots
+     *
+     * @return \WCS\CoavBundle\Entity\Flight
+     */
+    public function getPilots()
+    {
+        return $this->pilots;
+    }
+
+    /**
+     * Get reviewAuthors
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReviewAuthors()
+    {
+        return $this->reviewAuthors;
+    }
 }
