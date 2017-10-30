@@ -19,7 +19,7 @@ class User
     {
 
         // Return the Flight objet with departure, arrival,seatplace
-        return $this-> userName . "-" .$this->firstName . " " . $this->role;
+        return $this-> userName . "-" .$this->firstName;
 
     }
 
