@@ -300,12 +300,33 @@ class Terrain
     {
         return $this->country;
     }
+
+    /**
+     * Get departures
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getDepartures()
+    {
+        return $this->departures;
+    }
+
+    /**
+     * Get arrivals
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getArrivals()
+    {
+        return $this->arrivals;
+    }
     /**
      * Constructor
      */
     public function __construct()
     {
         $this->departures = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->arrivals = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -333,16 +354,6 @@ class Terrain
     }
 
     /**
-     * Get departures
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getDepartures()
-    {
-        return $this->departures;
-    }
-
-    /**
      * Add arrival
      *
      * @param \WCS\CoavBundle\Entity\Flight $arrival
@@ -364,15 +375,5 @@ class Terrain
     public function removeArrival(\WCS\CoavBundle\Entity\Flight $arrival)
     {
         $this->arrivals->removeElement($arrival);
-    }
-
-    /**
-     * Get arrivals
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getArrivals()
-    {
-        return $this->arrivals;
     }
 }

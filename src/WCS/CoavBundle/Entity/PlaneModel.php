@@ -202,6 +202,16 @@ class PlaneModel
     {
         return $this->isAvailable;
     }
+
+    /**
+     * Get planes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPlanes()
+    {
+        return $this->planes;
+    }
     /**
      * Constructor
      */
@@ -232,15 +242,5 @@ class PlaneModel
     public function removePlane(\WCS\CoavBundle\Entity\Flight $plane)
     {
         $this->planes->removeElement($plane);
-    }
-
-    /**
-     * Get planes
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPlanes()
-    {
-        return $this->planes;
     }
 }

@@ -355,6 +355,16 @@ class Flight
     {
         return $this->wasDone;
     }
+
+    /**
+     * Get flights
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFlights()
+    {
+        return $this->flights;
+    }
     /**
      * Constructor
      */
@@ -385,15 +395,5 @@ class Flight
     public function removeFlight(\WCS\CoavBundle\Entity\Reservation $flight)
     {
         $this->flights->removeElement($flight);
-    }
-
-    /**
-     * Get flights
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getFlights()
-    {
-        return $this->flights;
     }
 }
