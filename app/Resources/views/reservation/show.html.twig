@@ -18,14 +18,6 @@
                 <td>{% if reservation.publicationDate %}{{ reservation.publicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Passenger</th>
-                <td>{{ reservation.passenger }}</td>
-            </tr>
-            <tr>
-                <th>Flight</th>
-                <td>{{ reservation.flight }}</td>
-            </tr>
-            <tr>
                 <th>Wasdone</th>
                 <td>{% if reservation.wasDone %}Yes{% else %}No{% endif %}</td>
             </tr>

@@ -22,12 +22,13 @@ class Terrain
 
     /**
      * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="departure")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $departures;
 
     /**
      * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="arrival")
-     * @ORM\JoinColumn(name="arrivals", referencedColumnName="arrival")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $arrivals;
 
@@ -319,5 +320,61 @@ class Terrain
     public function getArrivals()
     {
         return $this->arrivals;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->departures = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->arrivals = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add departure
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $departure
+     *
+     * @return Terrain
+     */
+    public function addDeparture(\WCS\CoavBundle\Entity\Flight $departure)
+    {
+        $this->departures[] = $departure;
+
+        return $this;
+    }
+
+    /**
+     * Remove departure
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $departure
+     */
+    public function removeDeparture(\WCS\CoavBundle\Entity\Flight $departure)
+    {
+        $this->departures->removeElement($departure);
+    }
+
+    /**
+     * Add arrival
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $arrival
+     *
+     * @return Terrain
+     */
+    public function addArrival(\WCS\CoavBundle\Entity\Flight $arrival)
+    {
+        $this->arrivals[] = $arrival;
+
+        return $this;
+    }
+
+    /**
+     * Remove arrival
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $arrival
+     */
+    public function removeArrival(\WCS\CoavBundle\Entity\Flight $arrival)
+    {
+        $this->arrivals->removeElement($arrival);
     }
 }

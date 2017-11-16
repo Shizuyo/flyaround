@@ -22,12 +22,13 @@ class Terrain
 
     /**
      * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="departure")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $departures;
 
     /**
      * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="arrival")
-     * @ORM\JoinColumn(name="arrivals", referencedColumnName="arrival")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $arrivals;
 

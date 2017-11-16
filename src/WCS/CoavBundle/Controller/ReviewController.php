@@ -2,40 +2,44 @@
 
 namespace WCS\CoavBundle\Controller;
 
-use WCS\CoavBundle\Entity\Review;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+
+use WCS\CoavBundle\Entity\Review;
 
 /**
  * Review controller.
  *
  * @Route("review")
  */
+
 class ReviewController extends Controller
 {
+
     /**
-     * Lists all review entities.
+     * List all review with one user.
      *
      * @Route("/", name="review_index")
-     * @Method("GET")
+     * @Method("GET");
      */
+
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $reviews = $em->getRepository('WCSCoavBundle:Review')->findAll();
+        $review = $em->getRepository('WCSCoavBundle:Review')->findAll();
 
         return $this->render('review/index.html.twig', array(
-            'reviews' => $reviews,
+            'review' => $review,
         ));
     }
 
     /**
-     * Creates a new review entity.
+     * Create review
      *
      * @Route("/new", name="review_new")
-     * @Method({"GET", "POST"})
+     * @Method({"GET","POST"});
      */
     public function newAction(Request $request)
     {
@@ -54,22 +58,6 @@ class ReviewController extends Controller
         return $this->render('review/new.html.twig', array(
             'review' => $review,
             'form' => $form->createView(),
-        ));
-    }
-
-    /**
-     * Finds and displays a review entity.
-     *
-     * @Route("/{id}", name="review_show")
-     * @Method("GET")
-     */
-    public function showAction(Review $review)
-    {
-        $deleteForm = $this->createDeleteForm($review);
-
-        return $this->render('review/show.html.twig', array(
-            'review' => $review,
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -98,6 +86,23 @@ class ReviewController extends Controller
         ));
     }
 
+
+    /**
+     * Finds and displays a reservation entity.
+     *
+     * @Route("/{id}", name="review_show")
+     * @Method("GET")
+     */
+    public function showAction(Review $review)
+    {
+        $deleteForm = $this->createDeleteForm($review);
+
+        return $this->render('review/show.html.twig', array(
+            'review' => $review,
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
     /**
      * Deletes a review entity.
      *
@@ -119,7 +124,7 @@ class ReviewController extends Controller
     }
 
     /**
-     * Creates a form to delete a review entity.
+     * Creates a form to delete a reservation entity.
      *
      * @param Review $review The review entity
      *
@@ -131,6 +136,6 @@ class ReviewController extends Controller
             ->setAction($this->generateUrl('review_delete', array('id' => $review->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }

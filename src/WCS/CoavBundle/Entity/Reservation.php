@@ -14,6 +14,12 @@ class Reservation
 {
     /* personnal */
 
+    public function __toString()
+    {
+        // Return the Reservation with nbSeats, passengers, flight and wasDone, when __toString is called.
+        return $this->nbReservedSeats . " - " . $this->passengers . " - " . $this->flight . " - " . $this->wasDone;
+    }
+
     /**
      * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\User", mappedBy="reservations")
      * @ORM\JoinColumn(nullable=false)
@@ -46,17 +52,8 @@ class Reservation
     private $publicationDate;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="passenger", type="string", length=32)
-     */
-    private $passenger;
-
-    /**
-     * @var int
-     *
      * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\Flight", inversedBy="flights")
-     * @ORM\JoinColumn(name="flight", referencedColumnName="id")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $flight;
 
@@ -124,30 +121,6 @@ class Reservation
     public function getPublicationDate()
     {
         return $this->publicationDate;
-    }
-
-    /**
-     * Set passenger
-     *
-     * @param string $passenger
-     *
-     * @return Reservation
-     */
-    public function setPassenger($passenger)
-    {
-        $this->passenger = $passenger;
-
-        return $this;
-    }
-
-    /**
-     * Get passenger
-     *
-     * @return string
-     */
-    public function getPassenger()
-    {
-        return $this->passenger;
     }
 
     /**

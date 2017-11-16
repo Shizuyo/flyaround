@@ -13,9 +13,9 @@ class ReviewType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('text')->add('reviewAuthor')->add('publicationDate')->add('note')->add('userRated');
+        $builder->add('id')->add('text')->add('userRated')->add('reviewAuthor')->add('publicationDate')->add('note');
     }
-    
+
     /**
      * {@inheritdoc}
      */

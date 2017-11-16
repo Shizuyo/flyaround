@@ -12,18 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Review
 {
-    /* personnal */
-
-
     public function __toString()
     {
-
-        // Return the Flight objet with departure, arrival,seatplace
-        return $this->reviewAuthor . "-" .$this->text;
-
+        //return the Flight objet with departure, arrival, seatplace
+        return $this->reviewAuthor . "-" . $this->text ;
     }
-
-    /* doctrine */
 
     /**
      * @var int
@@ -42,17 +35,14 @@ class Review
     private $text;
 
     /**
-     * @var int
-     *
      * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
     private $userRated;
 
     /**
-     * @var int
-     *
-     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="reviewsAuthors")
+     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="reviewsauthor")
+     * @ORM\Column(nullable=false)
      */
     private $reviewAuthor;
 
@@ -80,7 +70,6 @@ class Review
     {
         return $this->id;
     }
-
     /**
      * Set text
      *
@@ -91,10 +80,8 @@ class Review
     public function setText($text)
     {
         $this->text = $text;
-
         return $this;
     }
-
     /**
      * Get text
      *
@@ -104,7 +91,6 @@ class Review
     {
         return $this->text;
     }
-
     /**
      * Set userRated
      *
@@ -115,10 +101,8 @@ class Review
     public function setUserRated($userRated)
     {
         $this->userRated = $userRated;
-
         return $this;
     }
-
     /**
      * Get userRated
      *
@@ -128,7 +112,6 @@ class Review
     {
         return $this->userRated;
     }
-
     /**
      * Set reviewAuthor
      *
@@ -139,10 +122,8 @@ class Review
     public function setReviewAuthor($reviewAuthor)
     {
         $this->reviewAuthor = $reviewAuthor;
-
         return $this;
     }
-
     /**
      * Get reviewAuthor
      *
@@ -152,7 +133,6 @@ class Review
     {
         return $this->reviewAuthor;
     }
-
     /**
      * Set publicationDate
      *
@@ -163,10 +143,8 @@ class Review
     public function setPublicationDate($publicationDate)
     {
         $this->publicationDate = $publicationDate;
-
         return $this;
     }
-
     /**
      * Get publicationDate
      *
@@ -176,7 +154,6 @@ class Review
     {
         return $this->publicationDate;
     }
-
     /**
      * Set note
      *
@@ -187,10 +164,8 @@ class Review
     public function setNote($note)
     {
         $this->note = $note;
-
         return $this;
     }
-
     /**
      * Get note
      *
@@ -201,3 +176,4 @@ class Review
         return $this->note;
     }
 }
+

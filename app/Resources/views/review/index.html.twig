@@ -15,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for review in reviews %}
+        {% for review in review %}
             <tr>
                 <td><a href="{{ path('review_show', { 'id': review.id }) }}">{{ review.id }}</a></td>
                 <td>{{ review.text }}</td>

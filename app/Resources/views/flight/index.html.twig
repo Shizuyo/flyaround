@@ -7,15 +7,11 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Departure</th>
-                <th>Arrival</th>
                 <th>Nbfreeseats</th>
                 <th>Seatprice</th>
                 <th>Takeofftime</th>
                 <th>Publicationdate</th>
                 <th>Description</th>
-                <th>Pilot</th>
-                <th>Plane</th>
                 <th>Wasdone</th>
                 <th>Actions</th>
             </tr>
@@ -24,15 +20,11 @@
         {% for flight in flights %}
             <tr>
                 <td><a href="{{ path('flight_show', { 'id': flight.id }) }}">{{ flight.id }}</a></td>
-                <td>{{ flight.departure }}</td>
-                <td>{{ flight.arrival }}</td>
                 <td>{{ flight.nbFreeSeats }}</td>
                 <td>{{ flight.seatPrice }}</td>
                 <td>{% if flight.takeOffTime %}{{ flight.takeOffTime|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if flight.publicationDate %}{{ flight.publicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ flight.description }}</td>
-                <td>{{ flight.pilot }}</td>
-                <td>{{ flight.plane }}</td>
                 <td>{% if flight.wasDone %}Yes{% else %}No{% endif %}</td>
                 <td>
                     <ul>
