@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 use WCS\CoavBundle\Entity\Review;
+use WCS\CoavBundle\Form\ReviewType;
 
 /**
  * Review controller.
@@ -44,13 +45,17 @@ class ReviewController extends Controller
     public function newAction(Request $request)
     {
         $review = new Review();
-        $form = $this->createForm('WCS\CoavBundle\Form\ReviewType', $review);
+        $form = $this->createForm(ReviewType::class, $review);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($review);
             $em->flush();
+
+            //You can use too
+            //return $this->>redirect($this->generateUrl('review_show', array('id' => $review->getId()));
 
             return $this->redirectToRoute('review_show', array('id' => $review->getId()));
         }
