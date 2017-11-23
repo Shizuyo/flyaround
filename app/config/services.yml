@@ -14,4 +14,8 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
-    
+services:
+    app.form.registration:
+        class: WCS\CoavBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: app_user_registration }

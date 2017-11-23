@@ -29,3 +29,6 @@ wcs_coav:
 wcs_coav_review:
     resource: "@WCSCoavBundle/Controller/ReviewController.php"
     type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
