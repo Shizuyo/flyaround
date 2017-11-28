@@ -2,9 +2,11 @@
 
 // src/AppBundle/Form/RegistrationType.php
 
-namespace AppBundle\Form;
+namespace WCS\CoavBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class RegistrationType extends AbstractType
 
@@ -12,8 +14,12 @@ class RegistrationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
 
     {
-        $builder->add('first_name');
-        $builder->add('last_name');
+        $builder->add('firstName')
+                ->add('lastName')
+                ->add('phoneNumber')
+                ->add('birthDate')
+                ->add('isACertifiedPilot')
+                ->add('isActive');
     }
 
     public function getParent()
