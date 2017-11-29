@@ -11,7 +11,7 @@ class Review
 {
     public function __toString()
     {
-        // Return the Flight objet with departure, arrival,seatplace
+        // Return the Flight objet with departure, arrival
         return $this-> reviewAuthor . "-" .$this->text ;
     }
 
@@ -40,7 +40,7 @@ class Review
 
     /**
      * @var int
-     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="reviewAuthors")
+     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="reviewsAuthor")
      * @ORM\JoinColumn(nullable=false)
      */
     private $reviewAuthor;
